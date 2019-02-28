@@ -6,6 +6,8 @@ def points(games)
         total=total+3
         elsif resultado[0] == resultado[1]
         total=total+1
+        else
+            total=total+0
         end
         total
     }

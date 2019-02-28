@@ -10,7 +10,7 @@ def bob(msg)
     elsif msg=="" then
         answer="Fine. Be that way"
     end
-    answer
+    answer="Whatever."
 end
 
 puts "Hi, I am Bob"
