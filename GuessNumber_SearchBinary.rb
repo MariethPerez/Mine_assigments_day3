@@ -1,49 +1,43 @@
 def gues_number_v1(num)
-    finder=false
-    stepCount=0
-    tamaño=16
-    inicioRango=1
-    while  !finder
-        stepCount=stepCount+1
-        mitad=tamaño/2
-        if mitad==0 then
-            mitad=1
-        end
-        finRango=inicioRango+mitad-1
-        for i in inicioRango..finRango
-            if i==num then
-                finder=true
-                break
-            end
-        end
-        tamaño=mitad
-        inicioRango=finRango+1
+  finder = false
+  step_count = 0
+  size = 16
+  inicio_rango = 1
+  until finder
+    step_count += 1
+    mitad = size / 2
+    mitad = 1 if mitad == 0
+    fin_rango = inicio_rango + mitad - 1
+    (inicio_rango..fin_rango).each do |i|
+      if i == num
+        finder = true
+        break
+      end
     end
-    puts stepCount
+    size = mitad
+    inicio_rango = fin_rango + 1
+  end
+  puts step_count
 end
 
-
+# Second version of binary search
 
 def gues_number_v2(num)
-    finder=false
-    stepCount=0
-    inicioRango=1
-    finRango=16
-    while  !finder
-        stepCount=stepCount+1
-        mitad=(inicioRango+finRango)/2
-        if mitad!=num then
-            if num>mitad then
-                inicioRango=mitad+1
-            else
-                finRango=mitad
-            end
-        else
-            finder=true
-            break
-        end
+  finder = false
+  step_count = 0
+  inicio_rango = 1
+  fin_rango = 16
+  until finder
+    step_count += 1
+    mitad = (inicio_rango + fin_rango) / 2
+    break if mitad == num
+    if num > mitad
+      inicio_rango = mitad + 1
+    else
+      fin_rango = mitad
     end
-    puts stepCount
+  end
+  puts step_count
 end
 
-gues_number_v2(3)
+gues_number_v2(12)
